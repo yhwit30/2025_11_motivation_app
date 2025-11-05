@@ -50,10 +50,12 @@ public class App {
                 if(motivationList.size() == 0){
                     System.out.println("등록된 명언이 없음");
                 } else{
-                    System.out.println("1개 이상 명언이 있음");
-                }
-//                System.out.println(motivationList.toString());
 
+                    for (int i = motivationList.size() - 1; i >= 0 ; i--){
+                        System.out.printf("%d    /  %s    /   %s\n", motivationList.get(i).id, motivationList.get(i).motiv, motivationList.get(i).writer);
+                    }
+
+                }
             }
 
 
