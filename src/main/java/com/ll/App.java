@@ -14,6 +14,9 @@ public class App {
     }
 
     public void run(){
+
+        int lastId = 0;
+
         System.out.println("== motivation App 실행 ==");
 
         while(true){
@@ -30,22 +33,26 @@ public class App {
             }
 
             if(cmd.equals("add")){
+                lastId++;
                 System.out.print("내용 : ");
                 String motiv = sc.nextLine().trim();
                 System.out.print("저자 : ");
                 String writer = sc.nextLine().trim();
-                System.out.println("1번 명언이 생성되었습니다.");
+                System.out.println((lastId) + "번 명언이 생성되었습니다.");
 
-                Motivation motivation = new Motivation(1, motiv, writer);
+                Motivation motivation = new Motivation(lastId, motiv, writer);
 
                 motivationList.add(motivation);
-
-
             }
             if(cmd.equals("list")){
                 System.out.println("번호  /   명언   /    저자");
 
-                System.out.println(motivationList.toString());
+                if(motivationList.size() == 0){
+                    System.out.println("등록된 명언이 없음");
+                } else{
+                    System.out.println("1개 이상 명언이 있음");
+                }
+//                System.out.println(motivationList.toString());
 
             }
 
