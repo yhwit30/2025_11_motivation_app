@@ -31,8 +31,7 @@ public class App {
                 System.out.println("명령어가 입력되지 않았음");
                 continue;
             }
-
-            if(cmd.equals("add")){
+            else if(cmd.equals("add")){
                 lastId++;
                 System.out.print("내용 : ");
                 String motiv = sc.nextLine().trim();
@@ -44,7 +43,7 @@ public class App {
 
                 motivationList.add(motivation);
             }
-            if(cmd.equals("list")){
+            else if(cmd.equals("list")){
                 System.out.println("번호  /   명언   /    저자");
 
                 if(motivationList.size() == 0){
@@ -52,13 +51,14 @@ public class App {
                 } else{
 
                     for (int i = motivationList.size() - 1; i >= 0 ; i--){
-                        System.out.printf("%d    /  %s    /   %s\n", motivationList.get(i).id, motivationList.get(i).motiv, motivationList.get(i).writer);
+                        System.out.printf("%d    /  %s    /   %s\n", motivationList.get(i).id, motivationList.get(i).motiv.substring(0, 5) + "...", motivationList.get(i).writer);
                     }
 
                 }
             }
-
-
+            else {
+                System.out.println("그런 명령어는 없습니다.");
+            }
         }
 
 
