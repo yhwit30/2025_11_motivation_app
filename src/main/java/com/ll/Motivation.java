@@ -2,9 +2,9 @@ package com.ll;
 
 public class Motivation {
 
-    int id;
-    String motiv;
-    String writer;
+    private int id;
+    private String motiv;
+    private String writer;
 
     @Override
     public String toString() {
@@ -18,6 +18,30 @@ public class Motivation {
     public Motivation(int id, String motiv, String writer) {
         this.id = id;
         this.motiv = motiv;
+        this.writer = writer;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getMotiv() {
+        return motiv;
+    }
+
+    public void setMotiv(String motiv) {
+        this.motiv = motiv;
+    }
+
+    public String getWriter() {
+        return writer;
+    }
+
+    public void setWriter(String writer) {
         this.writer = writer;
     }
 }
