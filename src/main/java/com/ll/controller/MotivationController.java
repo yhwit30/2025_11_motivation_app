@@ -10,13 +10,13 @@ public class MotivationController {
     Scanner sc;
     List<Motivation> motivationList = new ArrayList<>();
 
-    public MotivationController(Scanner sc){
+    public MotivationController(Scanner sc) {
         this.sc = sc;
     }
 
     int lastId = 0;
 
-    public void add(){
+    public void add() {
         lastId++;
         System.out.print("내용 : ");
         String motiv = sc.nextLine().trim();
@@ -29,7 +29,7 @@ public class MotivationController {
         motivationList.add(motivation);
     }
 
-    public void list(){
+    public void list() {
         System.out.println("번호  /   명언   /    저자");
 
         if (motivationList.size() == 0) {
@@ -49,19 +49,19 @@ public class MotivationController {
         }
     }
 
-    public void delete(String cmd){
+    public void delete(String cmd) {
         String[] deleteWords = cmd.split(" ");
 
         int deleteId = Integer.parseInt(deleteWords[1]);
 
         Motivation foundMotivation = null;
 
-        for(Motivation motivation : motivationList){
-            if (motivation.getId() == deleteId){
+        for (Motivation motivation : motivationList) {
+            if (motivation.getId() == deleteId) {
                 foundMotivation = motivation;
             }
         }
-        if(foundMotivation == null){
+        if (foundMotivation == null) {
             System.out.println("해당 명언은 없습니다.");
             return;
         }
