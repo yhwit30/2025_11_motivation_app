@@ -52,7 +52,19 @@ public class MotivationController {
     public void delete(String cmd) {
         String[] deleteWords = cmd.split(" ");
 
-        int deleteId = Integer.parseInt(deleteWords[1]);
+        int deleteId = -1;
+        try {
+            deleteId = Integer.parseInt(deleteWords[1]);
+        } catch (NumberFormatException e) {
+            System.out.println("숫자를 입력하세요.");
+            return;
+        } catch(ArrayIndexOutOfBoundsException e){
+            System.out.println("delete 한 칸 띄고 숫자 입력하세요");
+            return;
+        } catch (Exception e){
+            System.out.println("이상한 명령어 쓰지 마세요.");
+            return;
+        }
 
         Motivation foundMotivation = null;
 
