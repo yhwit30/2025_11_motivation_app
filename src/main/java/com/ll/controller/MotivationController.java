@@ -81,5 +81,44 @@ public class MotivationController {
         System.out.println(deleteId + "번 명언이 삭제되었습니다.");
 
     }
+    public void modify(String cmd){
+        String[] modifyWords = cmd.split(" ");
+
+        int modifyId = -1;
+        try {
+            modifyId = Integer.parseInt(modifyWords[1]);
+        } catch (NumberFormatException e) {
+            System.out.println("숫자를 입력하세요.");
+            return;
+        } catch(ArrayIndexOutOfBoundsException e){
+            System.out.println("modify 한 칸 띄고 숫자 입력하세요");
+            return;
+        } catch (Exception e){
+            System.out.println("이상한 명령어 쓰지 마세요.");
+            return;
+        }
+
+        Motivation foundMotivation = null;
+
+        for (Motivation motivation : motivationList) {
+            if (motivation.getId() == modifyId) {
+                foundMotivation = motivation;
+            }
+        }
+        if (foundMotivation == null) {
+            System.out.println("해당 명언은 없습니다.");
+            return;
+        }
+        System.out.println("기존 내용 : " + foundMotivation.getMotiv());
+        System.out.println("기존 저자 : " + foundMotivation.getWriter());
+        System.out.print("새 내용 : ");
+        String newMotiv = sc.nextLine().trim();
+        System.out.print("새 저자 : ");
+        String newWriter = sc.nextLine().trim();
+
+        foundMotivation.setMotiv(newMotiv);
+        foundMotivation.setWriter(newWriter);
+        System.out.println((foundMotivation.getId()) + "번 명언이 수정되었습니다.");
+    }
 
 }

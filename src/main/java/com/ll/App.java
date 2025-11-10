@@ -7,12 +7,9 @@ import java.util.Scanner;
 
 public class App {
     Scanner sc;
-
     public App(Scanner sc) {
         this.sc = sc;
     }
-
-
 
     public void run() {
         SystemController systemController = new SystemController();
@@ -35,7 +32,10 @@ public class App {
                 motivationController.list();
             } else if (cmd.startsWith("delete")) {
                 motivationController.delete(cmd);
-            } else {
+            } else if (cmd.startsWith("modify")){
+                motivationController.modify(cmd);
+            }
+            else {
                 System.out.println("그런 명령어는 없습니다.");
             }
         }
